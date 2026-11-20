@@ -54,8 +54,6 @@ buttons.forEach(button => {
 
         const numberArray = inputFormula.split(/[+\-*/]/).filter(Boolean);
         const operatorArray = inputFormula.split(/[0-9.]+/).filter(Boolean);
-        console.log("numberArray")
-        console.log("operatorArray")
         document.getElementById('numbers').value = numberArray.join(',');
         document.getElementById('operators').value = operatorArray.join(',');
         document.getElementById('formula').value = inputFormula;
