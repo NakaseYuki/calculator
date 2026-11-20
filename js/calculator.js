@@ -1,4 +1,6 @@
+const previousOperand = document.getElementById(`previous-operand`);
 const currentOperandDisplay = document.getElementById('current-operand');
+
 
 let inputFormula = currentOperandDisplay.textContent;
 
@@ -50,9 +52,10 @@ buttons.forEach(button => {
             inputFormula = inputFormula.slice(0, -1);
         }
 
-        const numberArray = inputFormula.split(/[+\-*/]/);
+        const numberArray = inputFormula.split(/[+\-*/]/).filter(Boolean);
         const operatorArray = inputFormula.split(/[0-9.]+/).filter(Boolean);
-
+        console.log("numberArray")
+        console.log("operatorArray")
         document.getElementById('numbers').value = numberArray.join(',');
         document.getElementById('operators').value = operatorArray.join(',');
         document.getElementById('formula').value = inputFormula;
@@ -72,6 +75,7 @@ buttons.forEach(button => {
     // オールクリア
     else if (button.dataset.action === 'clear') {
       inputFormula = '0';
+      previousOperand.textContent = "";
       currentOperandDisplay.textContent = inputFormula;
     }
 

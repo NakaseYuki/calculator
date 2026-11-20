@@ -51,8 +51,14 @@ public class CalculatorController extends HttpServlet {
         }
         
         FourArithmeticOperations calc = new FourArithmeticOperations();
-        
-        //掛け算割り算からしていく
+System.out.println("koetayo-");        
+//-が頭にある場合
+        if (numbers.size() == operators.size()) {
+            numbers.add(0, 0.0);
+            System.out.println("-");
+        }
+
+//掛け算割り算からしていく
         for (int i = 0; i < operators.size(); i++) {
             if (operators.get(i).equals("/") || operators.get(i).equals("*")) {
                 double num1 = numbers.get(i);
